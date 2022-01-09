@@ -8,7 +8,6 @@ def extract_mask(im):
     kernel = np.ones((3,3),np.uint8)
     closed = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
     edges = cv2.Canny(closed, 50, 200)
-    cv2.imshow('first edges', edges)
 
     lines = cv2.HoughLinesP(cv2.dilate(edges, kernel),1,np.pi/2, 50, None, 50, 1)
     if lines is not None:
@@ -17,8 +16,6 @@ def extract_mask(im):
             x0,y0,x1,y1 = line[0]
             cv2.line(lines_im,(x0,y0),(x1,y1),255,4)
         edges = cv2.bitwise_and(edges, ~lines_im)
-        cv2.imshow('hough lines', lines_im)
-        cv2.imshow('without hough lines', edges)
 
     final_edges = cv2.dilate(edges, kernel)
     close_iters = 2
