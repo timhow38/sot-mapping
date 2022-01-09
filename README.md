@@ -1,8 +1,29 @@
-# sot-mapping
 
-## Getting Started
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-1) Install Python >= 3.9
-1) `py -m venv ./../sot-mapping`
-1) Powershell: `./Scripts/activate` OR Cmd: `Scripts/activate.bat`
-1) `py -m pip install -r requirements.txt`
+
+# Screen Thieves
+
+A brief description of what this project does.
+
+
+
+## Enviroment Installation
+
+Setup environment.
+
+```py
+    //Install Python >= 3.9
+   `py -m venv ./../sot-mapping`
+```
+Activate the environment.
+```py
+    //Powershell: 
+        ./Scripts/activate
+    //OR Cmd: 
+        Scripts/activate.bat
+```
+Install Dependencies. - **Only needed on first setup**
+```py
+   `py -m pip install -r requirements.txt`
+```
