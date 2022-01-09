@@ -36,6 +36,6 @@ if __name__ == '__main__':
                     row = cv2.hconcat([row, white])
                 big_concat = cv2.vconcat([big_concat, row])
 
-    cv2.imshow(name, big_concat)
+    cv2.imshow('Masks', big_concat)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
