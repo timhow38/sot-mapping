@@ -6,10 +6,26 @@ import sys
 def extract_mask(im):
     gray = cv2.cvtColor(im, cv2.COLOR_RGB2GRAY)
     kernel = np.ones((3,3),np.uint8)
-    opening = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
-    edges = cv2.Canny(opening, 50, 200)
-    dilated = cv2.dilate(edges, kernel)
-    contours, _ = cv2.findContours(dilated, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    closed = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
+    edges = cv2.Canny(closed, 50, 200)
+    cv2.imshow('first edges', edges)
+
+    lines = cv2.HoughLinesP(cv2.dilate(edges, kernel),1,np.pi/2, 50, None, 50, 1)
+    if lines is not None:
+        lines_im = np.zeros(edges.shape).astype('uint8')
+        for line in lines:
+            x0,y0,x1,y1 = line[0]
+            cv2.line(lines_im,(x0,y0),(x1,y1),255,4)
+        edges = cv2.bitwise_and(edges, ~lines_im)
+        cv2.imshow('hough lines', lines_im)
+        cv2.imshow('without hough lines', edges)
+
+    final_edges = cv2.dilate(edges, kernel)
+    close_iters = 2
+    kernel = np.ones((5,5),np.uint8)
+    for i in range(close_iters):
+        final_edges = cv2.morphologyEx(final_edges, cv2.MORPH_CLOSE, kernel)
+    contours, _ = cv2.findContours(final_edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     center_y, center_x = gray.shape
     center_x /= 2
     center_y /= 2
