@@ -4,4 +4,6 @@
 
 /.vs
 /tools/__pycache__
-/Lib/site-packages
+/Lib
+/pyvenv.cfg
+/Scripts
