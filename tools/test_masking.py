@@ -5,9 +5,9 @@ import numpy as np
 
 if __name__ == '__main__':
     # TODO relative paths
-    current_dir = r'C:\Users\Riley\source\repos\SOT\sot-mapping'
+    current_dir = r'C:\Users\Riley\source\repos\sot-mapping'
     path = Path(current_dir)
-    path = path / 'mapAsset-sources' / 'assets-loc-img'
+    path = path / 'assets-mapData' / 'assets-loc-img'
     image_paths = path.glob('**/*.jpg')
     big_concat = None
     row = None
