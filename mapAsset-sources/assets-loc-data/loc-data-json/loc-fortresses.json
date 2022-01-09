@@ -1,0 +1,52 @@
+[
+  {
+    "Name": "Keel Haul Fort",
+    "Grid": "C-6",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Hidden Spring Keep",
+    "Grid": "I-8",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Sailor's Knot Stronghold",
+    "Grid": "E-14",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Lost Gold Fort",
+    "Grid": "H-17",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Old Boot Fort",
+    "Grid": "L-14",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "The Crow's Nest Fortress",
+    "Grid": "O-17",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Skull Keep",
+    "Grid": "P-9",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Kraken Watchtower",
+    "Grid": "L-6",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Shark Fin Camp",
+    "Grid": "P-5",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Molten Sands Fortress",
+    "Grid": "Z-11",
+    "Region": "The Devil's Roar"
+  }
+]

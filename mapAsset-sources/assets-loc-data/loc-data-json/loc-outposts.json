@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "Sanctuary Outpost",
+    "Grid": "F-7",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Golden Sands Outpost",
+    "Grid": "D-10",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Plunder Outpost",
+    "Grid": "J-18",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Ancient Spire Outpost",
+    "Grid": "Q-17",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Galleon's Grave Outpost",
+    "Grid": "R-8",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Dagger Tooth Outpost",
+    "Grid": "M-8",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Morrow's Peak Outpost",
+    "Grid": "V-17",
+    "Region": "The Devil's Roar"
+  }
+]

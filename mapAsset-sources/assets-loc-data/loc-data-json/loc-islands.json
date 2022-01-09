@@ -1,0 +1,386 @@
+[
+  {
+    "Name": "Barnacle Cay",
+    "Grid": "O-15",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Black Sand Atoll",
+    "Grid": "O-3",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Black Water Enclave",
+    "Grid": "R-5",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Blind Man's Lagoon",
+    "Grid": "N-6",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Booty Isle",
+    "Grid": "K-20",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Boulder Cay",
+    "Grid": "G-5",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Brimstone Rock",
+    "Grid": "X-18",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Castaway Isle",
+    "Grid": "K-14",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Chicken Isle",
+    "Grid": "I-16",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Cinder Islet",
+    "Grid": "U-14",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Cursewater Shores",
+    "Grid": "Y-13",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Cutlass Cay",
+    "Grid": "M-18",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Flame's End",
+    "Grid": "V-19",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Fools Lagoon",
+    "Grid": "I-14",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Forsaken Brink",
+    "Grid": "U-16",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Glowstone Cay",
+    "Grid": "Z-18",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Isle of Last Words",
+    "Grid": "O-9",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Lagoon of Whispers",
+    "Grid": "D-12",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Liar's Backbone",
+    "Grid": "S-11",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Lonely Isle",
+    "Grid": "G-8",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Lookout Point",
+    "Grid": "I-20",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Magma's Tide",
+    "Grid": "Y-20",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Mutineer Rock",
+    "Grid": "N-19",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Old Salts Atoll",
+    "Grid": "F-18",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Paradise Spring",
+    "Grid": "L-17",
+    "Type": "Islet",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Picaroon Palms",
+    "Grid": "I-4",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Plunderer's Plight",
+    "Grid": "Q-6",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Rapier Cay",
+    "Grid": "D-8",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Roaring Sands",
+    "Grid": "U-21",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Rum Runner Isle",
+    "Grid": "H-9",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Salty Sands",
+    "Grid": "G-3",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Sandy Shallows",
+    "Grid": "D-5",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Scorched Pass",
+    "Grid": "X-11",
+    "Type": "Islet",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Scurvy Isley",
+    "Grid": "K-4",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Sea Dog's Rest",
+    "Grid": "C-11",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Shark Tooth Key",
+    "Grid": "P-13",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Shiver Retreat",
+    "Grid": "Q-11",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Tri-Rock Isle",
+    "Grid": "R-10",
+    "Type": "Islet",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Twin Groves",
+    "Grid": "H-11",
+    "Type": "Islet",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Ashen Reaches",
+    "Grid": "V-23",
+    "Type": "Island",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Cannon Cove",
+    "Grid": "G-10",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Crescent Isle",
+    "Grid": "B-9",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Crook's Hollow",
+    "Grid": "M-16",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Devil's Ridge",
+    "Grid": "P-19",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Discovery Ridge",
+    "Grid": "E-17",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Fetcher's Rest",
+    "Grid": "V-12",
+    "Type": "Island",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Flintlock Peninsula",
+    "Grid": "W-14",
+    "Type": "Island",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Kraken's Fall",
+    "Grid": "R-12",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Lone Cove",
+    "Grid": "H-6",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Marauder's Arch",
+    "Grid": "Q-3",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Mermaid's Hideaway",
+    "Grid": "B-13",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Old Faithful Isle",
+    "Grid": "M-4",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Plunder Valley",
+    "Grid": "G-16",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Ruby's Fall",
+    "Grid": "Y-16",
+    "Type": "Island",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Sailor's Bounty",
+    "Grid": "C-4",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Shark Bait Cove",
+    "Grid": "H-19",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Shipwreck Bay",
+    "Grid": "M-10",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Smugglers' Bay",
+    "Grid": "F-3",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "Snake Island",
+    "Grid": "K-16",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "The Crooked Masts",
+    "Grid": "O-11",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "The Devil's Thirst",
+    "Grid": "W-21",
+    "Type": "Island",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "The Sunken Grove",
+    "Grid": "P-7",
+    "Type": "Island",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Thieves' Haven",
+    "Grid": "L-20",
+    "Type": "Island",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Wanderers Refuge",
+    "Grid": "F-12",
+    "Type": "Island",
+    "Region": "The Shores of Plenty"
+  }
+]

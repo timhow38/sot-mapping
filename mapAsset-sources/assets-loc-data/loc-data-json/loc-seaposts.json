@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "The Spoils of Plenty Store",
+    "Grid": "B-7",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "The North Star Seapost",
+    "Grid": "H-10",
+    "Region": "The Shores of Plenty"
+  },
+  {
+    "Name": "The Finest Trading Post",
+    "Grid": "F-17",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Stephen's Spoils",
+    "Grid": "L-15",
+    "Region": "The Ancient Isles"
+  },
+  {
+    "Name": "Three Paces East Seapost",
+    "Grid": "S-10",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "The Wild Treasures Store",
+    "Grid": "O-4",
+    "Region": "The Wilds"
+  },
+  {
+    "Name": "Brian's Bazaar",
+    "Grid": "Y-12",
+    "Region": "The Devil's Roar"
+  },
+  {
+    "Name": "Roaring Traders",
+    "Grid": "U-20",
+    "Region": "The Devil's Roar"
+  }
+]

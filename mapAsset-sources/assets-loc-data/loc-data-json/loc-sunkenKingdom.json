@@ -1,0 +1,56 @@
+[
+  {
+    "Name": "Shrine of the Coral Tomb",
+    "Grid": "H-5",
+    "Region": "The Shores of Plenty",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Shrine of Ocean's Fortune",
+    "Grid": "D-14",
+    "Region": "Shores of Plenty",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Shrine of Ancient Tears",
+    "Grid": "N-20",
+    "Region": "The Ancient Isles",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Shrine of Tribute",
+    "Grid": "G-18",
+    "Region": "Ancient Isles",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Shrine of Hungering",
+    "Grid": "Q-5",
+    "Region": "The Wilds",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Shrine of Flooded Embrace",
+    "Grid": "N-12",
+    "Region": "The Wilds",
+    "Type": "Siren Shrine"
+  },
+  {
+    "Name": "Treasury of Sunken Shores",
+    "Grid": "D-3",
+    "Region": "The Shores of Plenty",
+    "Type": "Siren Treasury"
+  },
+  {
+    "Name": "Treasury of the Lost Ancients",
+    "Grid": "H-13",
+    "Region": "The Ancient Isles",
+    "Type": "Siren Treasury"
+  },
+  {
+    "Name": "Treasury of the Secret Wilds",
+    "Grid": "L-3",
+    "Region": "The Wilds",
+    "Type": "Siren Treasury"
+  }
+]
