@@ -43,10 +43,10 @@ def extract_mask(im):
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         im = np.array(Image.open(sys.argv[1]).convert('RGB'))
+        mask = extract_mask(im)
+        cv2.imshow('Raw', im)
+        cv2.imshow('Mask', mask)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
     else:
-        im = np.array(ImageGrab.grab().convert('RGB'))
-    mask = extract_mask(im)
-    cv2.imshow('Raw', im)
-    cv2.imshow('Central contours', mask)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+        print(f'Run extract_mask <image uri> to generate a mask for that image')
