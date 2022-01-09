@@ -2,12 +2,12 @@ from extract_mask import extract_mask
 from pathlib import Path
 import cv2
 import numpy as np
+import os
+
 
 if __name__ == '__main__':
-    # TODO relative paths
-    current_dir = r'C:\Users\Riley\source\repos\sot-mapping'
-    path = Path(current_dir)
-    path = path / 'assets-mapData' / 'assets-loc-img'
+    path = Path(os.path.dirname(os.path.abspath(__file__)))
+    path = path / '..' / 'assets-mapData' / 'assets-loc-img'
     image_paths = path.glob('**/*.jpg')
     big_concat = None
     row = None
