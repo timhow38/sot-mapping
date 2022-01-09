@@ -13,11 +13,11 @@ A brief description of what this project does.
 Setup environment.
 
 ```py
-    //Install Python >= 3.9
+    #Install Python >= 3.9
    `py -m venv ./../sot-mapping`
 ```
 Activate the environment.
-```py
+```bash
     //Powershell: 
         ./Scripts/activate
     //OR Cmd: 
@@ -25,5 +25,6 @@ Activate the environment.
 ```
 Install Dependencies. - **Only needed on first setup**
 ```py
+    #Install dependencies for a closed env 
    `py -m pip install -r requirements.txt`
 ```
