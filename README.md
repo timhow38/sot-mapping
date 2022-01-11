@@ -1,5 +1,5 @@
 
-![Logo](https://i.ibb.co/hYBTKw0/Group-56.png)
+![Logo](https://i.ibb.co/xGdtf2F/Group-56.png)
 
 
 # Screen Thieves
