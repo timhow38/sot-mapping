@@ -2,29 +2,54 @@
 ![Logo](https://i.ibb.co/xGdtf2F/Group-56.png)
 
 
-# Screen Thieves
+# **SOT** - Map Analysis
 
-A brief description of what this project does.
+**Brief:** Using a variety of methods to analyse a screen grab of an in game island map to determine which island the map refers to and to then send this data along with meta data concerning the island properties.
+
+**Analysis Methods Used:**
+A brief description of the types of methods used
 
 
+# Application Installation
 
-## Enviroment Installation
+## Run Locally - Setup Virtual Enviroment
 
-Setup environment.
+Clone the project
 
-```py
-    #Install Python >= 3.9
-   `py -m venv ./../sot-mapping`
-```
-Activate the environment.
 ```bash
-    //Powershell: 
-        ./Scripts/activate
-    //OR Cmd: 
-        Scripts/activate.bat
+  git clone https://github.com/timhow38/sot-mapping
 ```
-Install Dependencies. - **Only needed on first setup**
+
+Open the project dir using "VSCode Community"
+
 ```py
-    #Install dependencies for a closed env 
-   `py -m pip install -r requirements.txt`
+  # Install Python >= 3.9
+  py -m venv ./../sot-mapping
+```
+
+Setup Virtual Enviroment
+
+```powershell
+  # Powershell: 
+  ./Scripts/activate
+
+         or
+
+  # Command Prompt: 
+  Scripts/activate.bat
+```
+
+Install Dependencies. - **Only needed on first setup**
+
+```powershell
+  # Install dependencies for a closed env 
+  py -m pip install -r requirements.txt
+```
+
+
+## Local Testing - Test / Generate
+While enviroment active type the following:
+
+```py
+  py tools/test_masking.py
 ```
