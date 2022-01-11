@@ -6,13 +6,13 @@
 
 **Brief:** Using a variety of methods to analyse a screen grab of an in game island map to determine which island the map refers to and to then send this data along with meta data concerning the island properties.
 
-**Analysis Methods Used:**
+**Analysis Methods Used: **
 A brief description of the types of methods used
 
 
 # Application Installation
 
-## Run Locally - Setup Virtual Enviroment
+## Run Locally - Setup Virtual Environment
 
 Clone the project
 
@@ -22,12 +22,12 @@ Clone the project
 
 Open the project dir using "VSCode Community"
 
-```py
+```powershell
   # Install Python >= 3.9
   py -m venv ./../sot-mapping
 ```
 
-Setup Virtual Enviroment
+Setup Virtual Environment
 
 ```powershell
   # Powershell: 
@@ -48,7 +48,7 @@ Install Dependencies. - **Only needed on first setup**
 
 
 ## Local Testing - Test / Generate
-While enviroment active type the following:
+While Environment active type the following:
 
 ```py
   py tools/test_masking.py
