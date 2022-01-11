@@ -47,6 +47,28 @@ def match_image(im, cache = None):
         #is_best_match = best_score is None or score > best_score
 
         # Template matching
+        #mask_correlation = cv2.matchTemplate(
+        #    source_features[Features.MASK],
+        #    target_features[Features.MASK],
+        #    matching_mode
+        #    )
+        #scores.append(mask_correlation)
+
+        #full_correlation = cv2.matchTemplate(
+        #    source_features[Features.IMAGE],
+        #    target_features[Features.IMAGE],
+        #    matching_mode
+        #    )
+        #scores.append(full_correlation)
+
+        #source_colour_masks = source_features[Features.COLOUR_MASKS]
+        #target_colour_masks = target_features[Features.COLOUR_MASKS]
+        ## Colour matching
+        #for (x, y) in zip(source_colour_masks, target_colour_masks):
+        #    mask_correlation = cv2.matchTemplate(x, y, matching_mode)
+        #    scores.append(mask_correlation)
+
+        # Aligned template matching
         mask_correlation = cv2.matchTemplate(
             source_features[Features.MASK],
             target_features[Features.MASK],
@@ -54,20 +76,19 @@ def match_image(im, cache = None):
             )
         scores.append(mask_correlation)
 
-        full_correlation = cv2.matchTemplate(
-            source_features[Features.IMAGE],
-            target_features[Features.IMAGE],
-            matching_mode
-            )
-        scores.append(full_correlation)
+        print(mask_correlation)
+        if mask_correlation > 0.5:
+            matched_target = match_histograms(target_features[Features.IMAGE], source_features[Features.IMAGE])
+            aligned_target = align_images(matched_target, source_features[Features.IMAGE], max_features=1000, keep_percent=0.1)
+            full_correlation = cv2.matchTemplate(
+                source_features[Features.IMAGE],
+                aligned_target,
+                matching_mode
+                )
+            scores.append(full_correlation)
 
-        source_colour_masks = source_features[Features.COLOUR_MASKS]
-        target_colour_masks = target_features[Features.COLOUR_MASKS]
-        # Colour matching
-        for (x, y) in zip(source_colour_masks, target_colour_masks):
-            mask_correlation = cv2.matchTemplate(x, y, matching_mode)
-            scores.append(mask_correlation)
-        
+
+
         scores = np.array(scores)
         root_squared_errors = np.sqrt(np.square((1-scores)*100)) / 100
         rmse = root_squared_errors.mean()

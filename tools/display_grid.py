@@ -5,7 +5,10 @@ from image_tools import resize
 def create_display_grid(im_arr, resize_all=None):
 	if len(im_arr) == 1:
 		im_arr = [im_arr]
-	shape = im_arr[0][0].shape
+	for im in im_arr[0]:
+		if type(im) == np.ndarray:
+			shape = im.shape
+			break
 	if len(shape) == 2:
 		shape = [*shape, 3]
 	row_accumulator = None
