@@ -33,3 +33,13 @@ def extract_colour_histogram(im):
     hist_g = cv2.calcHist([im], [0], None, [256], [0,256])
     hist_r = cv2.calcHist([im], [0], None, [256], [0,256])
     pass
+
+# Doesn't work for aspect ratios < 1, but who uses
+# screens like that anyway?
+def crop_to_aspect(im, target_ratio=1):
+    im_ratio = im.shape[1] / im.shape[0]
+    if im_ratio == target_ratio:
+        return im
+    relative_ratio = im_ratio / target_ratio
+    offset_x = int((im.shape[1] - (im.shape[1] / relative_ratio)) / 2)
+    return im.copy()[:,offset_x:-offset_x]

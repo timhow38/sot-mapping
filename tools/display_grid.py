@@ -2,11 +2,10 @@ import cv2
 import numpy as np
 from image_tools import resize
 
-def display_grid(im_arr, resize_all=None):
-	im_arr = np.array(im_arr, dtype=object)
-	if len(im_arr.shape) == 1:
+def create_display_grid(im_arr, resize_all=None):
+	if len(im_arr) == 1:
 		im_arr = [im_arr]
-	shape = im_arr[0,0].shape
+	shape = im_arr[0][0].shape
 	if len(shape) == 2:
 		shape = [*shape, 3]
 	row_accumulator = None

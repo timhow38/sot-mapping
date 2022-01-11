@@ -2,12 +2,11 @@ from feature_extractor import *
 from image_tools import *
 from image_tools import *
 from pathlib import Path
-from display_grid import display_grid
 import numpy as np
 import cv2
 import os
 
-def match_image(im):
+def match_image(im, cache = None):
     path = Path(os.path.dirname(os.path.abspath(__file__)))
     path = path / '..' / 'assets-mapData' / 'assets-loc-img'
     image_paths = path.glob('**/*.jpg')
@@ -16,24 +15,17 @@ def match_image(im):
     best_raw = None
     best_mask = None
 
-    source_mask = extract_central_contours(im)
-    source_moments = extract_hu_moments(source_mask)
-    source_bound_mask, x,y,w,h = extract_bound_mask(source_mask)
-    source_bound_mask = resize(source_bound_mask)
-    source_bound_im = clip_square_section(im, x,y,w,h)
-    source_bound_im = resize(source_bound_im)
-    source_bound_masked_im = apply_mask(source_bound_im, source_bound_mask)
-    source_colour_masks = extract_sand_grass_rock(source_bound_masked_im)
+    source_features = get_features(im)
 
     for path in image_paths:
         name = str(path).split('-')[-1]
-        target = cv2.imread(str(path))
-        target_mask = extract_central_contours(target)
-        target_bound_mask, x,y,w,h = extract_bound_mask(target_mask)
-        target_bound_mask = resize(target_bound_mask)
-        target_bound_im = clip_square_section(target, x,y,w,h)
-        target_bound_im = resize(target_bound_im)
-        target_bound_masked_im = apply_mask(target_bound_im, target_bound_mask)
+        if cache is not None and name in cache:
+            target_features = cache[name]
+        else:
+            target = cv2.imread(str(path))
+            target_features = get_features(target)
+            if cache is not None:
+                cache[name] = target_features
         scores = []
 
         # Hu moments MSE
@@ -53,25 +45,31 @@ def match_image(im):
         #is_best_match = best_score is None or score > best_score
 
         # Template matching
-        mask_correlation = cv2.matchTemplate(source_bound_mask, target_bound_mask, cv2.TM_CCOEFF)
+        mask_correlation = cv2.matchTemplate(
+            source_features[Features.MASKED_IMAGE],
+            target_features[Features.MASKED_IMAGE],
+            cv2.TM_CCOEFF_NORMED
+            )
         scores.append(mask_correlation)
         
+        source_colour_masks = source_features[Features.COLOUR_MASKS]
+        target_colour_masks = target_features[Features.COLOUR_MASKS]
         # Colour matching
-        target_colour_masks = extract_sand_grass_rock(target_bound_masked_im)
         for (x, y) in zip(source_colour_masks, target_colour_masks):
-            mask_correlation = cv2.matchTemplate(x, y, cv2.TM_CCOEFF)
+            mask_correlation = cv2.matchTemplate(x, y, cv2.TM_CCOEFF_NORMED)
             scores.append(mask_correlation)
         
-        print(scores)
         scores = np.array(scores)
-        mean_score = scores[0].mean()
-
-        is_best_match = best_score is None or mean_score > best_score
+        print(f'{name} {scores}')
+        weights = np.array([1,1,1,1])
+        root_squared_errors = np.sqrt(np.square((1-scores)*100)) / 100
+        rmse = (root_squared_errors * weights).mean()
+        print(rmse)
+        is_best_match = best_score is None or rmse < best_score
 
         #print(f'{name}: {score}')
         if is_best_match:
             best_match = name
-            best_score = mean_score
-            best_raw = target
+            best_score = rmse
     print(f'I think it\'s {best_match}')
     return best_match
