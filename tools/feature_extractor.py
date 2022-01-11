@@ -102,14 +102,31 @@ def extract_sand_grass_rock(im, using_rgb=True):
         masks.append((all_matching * 255).astype('uint8'))
     return masks
 
+def get_colour_matched(im):
+    path = Path(os.path.dirname(os.path.abspath(__file__)))
+    path = path / '..' / 'testing-and-validation' / 'test-treasure-maps'
+    image_paths = list(path.glob('**/treasure3.jpg'))
+    ref = cv2.imread(str(image_paths[0]))
+
+    ref_mask, *ref_coords = extract_bound_mask(extract_central_contours(ref))
+    ref = clip_square_section(ref, *ref_coords)
+    ref = apply_clahe(ref)
+    clipped_ref = apply_mask(ref, ref_mask)
+
+    clipped = apply_clahe(im)
+
+    return match_histograms(clipped, clipped_ref)
+
 
 class Features(Enum):
     MASK = 0
     IMAGE = 1
     MASKED_IMAGE = 2
-    COLOUR_MASKS = 3
+    COLOUR_MASKS = 4
 
 def get_features(im, requested_features = list(Features), target_size=400):
+    if type(requested_features) == Features:
+        requested_features = [requested_features]
     features = {}
     mask = extract_central_contours(im)
     bound_mask, x,y,w,h = extract_bound_mask(mask)
@@ -126,6 +143,6 @@ def get_features(im, requested_features = list(Features), target_size=400):
         if Features.MASKED_IMAGE in requested_features:
             features[Features.MASKED_IMAGE] = bound_masked_im
         if Features.COLOUR_MASKS in requested_features:
-            colour_masks = extract_sand_grass_rock(bound_masked_im)
+            colour_masks = extract_sand_grass_rock(im)
             features[Features.COLOUR_MASKS] = colour_masks
     return features

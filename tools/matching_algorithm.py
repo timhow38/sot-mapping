@@ -15,7 +15,9 @@ def match_image(im, cache = None):
     best_raw = None
     best_mask = None
 
+    matching_mode = cv2.TM_CCORR_NORMED
     source_features = get_features(im)
+    final_scores = {}
 
     for path in image_paths:
         name = str(path).split('-')[-1]
@@ -46,30 +48,33 @@ def match_image(im, cache = None):
 
         # Template matching
         mask_correlation = cv2.matchTemplate(
-            source_features[Features.MASKED_IMAGE],
-            target_features[Features.MASKED_IMAGE],
-            cv2.TM_CCOEFF_NORMED
+            source_features[Features.MASK],
+            target_features[Features.MASK],
+            matching_mode
             )
         scores.append(mask_correlation)
-        
+
+        full_correlation = cv2.matchTemplate(
+            source_features[Features.IMAGE],
+            target_features[Features.IMAGE],
+            matching_mode
+            )
+        scores.append(full_correlation)
+
         source_colour_masks = source_features[Features.COLOUR_MASKS]
         target_colour_masks = target_features[Features.COLOUR_MASKS]
         # Colour matching
         for (x, y) in zip(source_colour_masks, target_colour_masks):
-            mask_correlation = cv2.matchTemplate(x, y, cv2.TM_CCOEFF_NORMED)
+            mask_correlation = cv2.matchTemplate(x, y, matching_mode)
             scores.append(mask_correlation)
         
         scores = np.array(scores)
-        print(f'{name} {scores}')
-        weights = np.array([1,1,1,1])
         root_squared_errors = np.sqrt(np.square((1-scores)*100)) / 100
-        rmse = (root_squared_errors * weights).mean()
-        print(rmse)
+        rmse = root_squared_errors.mean()
         is_best_match = best_score is None or rmse < best_score
-
-        #print(f'{name}: {score}')
+        final_scores[name] = rmse, scores
         if is_best_match:
             best_match = name
             best_score = rmse
     print(f'I think it\'s {best_match}')
-    return best_match
+    return final_scores
