@@ -7,5 +7,4 @@
 /Lib
 /Scripts
 pyvenv.cfg
-/share/doc/networkx-2.6.3
-/share/man/man1
+/share
