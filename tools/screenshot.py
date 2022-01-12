@@ -20,7 +20,7 @@ def quit():
 
 if __name__ == '__main__':
     with keyboard.GlobalHotKeys({
-        '<ctrl>+<shift>+m': on_activate,
+        '<ctrl>+<shift>+r': on_activate,
         '<ctrl>+c': quit
         }) as h:
         h.join()
