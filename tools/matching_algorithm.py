@@ -101,7 +101,6 @@ def match_image(im, cache = None, weights = None):
         #print(cv2.matchShapes(source_features[Features.MASK], target_features[Features.MASK], cv2.CONTOURS_MATCH_I3, 0.0))
         #scores.append(cv2.matchShapes(source_features[Features.MASK], target_features[Features.MASK], cv2.CONTOURS_MATCH_I3, 0.0))
 
-
         scores = np.array(scores)
         root_squared_errors = np.sqrt(np.square((1-scores)*100)) / 100
         rmse = root_squared_errors.mean()
