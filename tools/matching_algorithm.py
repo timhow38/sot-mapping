@@ -20,9 +20,10 @@ def match_image(im, cache = None, weights = None):
     final_scores = {}
 
     if cache is None:
-        cache = {}
+       cache = {}
+    if len(cache.items()) == 0:
         for path in image_paths:
-            name = str(path).split('-')[-1]
+            name = str(path).split('\\')[-1]
             target = cv2.imread(str(path))
             target_features = get_features(target)
             if cache is not None:
