@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 import os
 
-def match_image(im, cache = None):
+def match_image(im, cache = None, weights = None):
     path = Path(os.path.dirname(os.path.abspath(__file__)))
     path = path / '..' / 'assets-mapData' / 'assets-loc-img'
     image_paths = path.glob('**/*.jpg')
@@ -74,19 +74,32 @@ def match_image(im, cache = None):
             target_features[Features.MASK],
             matching_mode
             )
-        scores.append(mask_correlation)
+        scores.append(mask_correlation[0][0])
 
         print(mask_correlation)
-        if mask_correlation > 0.5:
-            matched_target = match_histograms(target_features[Features.IMAGE], source_features[Features.IMAGE])
-            aligned_target = align_images(matched_target, source_features[Features.IMAGE], max_features=1000, keep_percent=0.1)
-            full_correlation = cv2.matchTemplate(
-                source_features[Features.IMAGE],
-                aligned_target,
-                matching_mode
-                )
-            scores.append(full_correlation)
+        #matched_target = match_histograms(target_features[Features.IMAGE], source_features[Features.IMAGE])
+        #aligned_target, *rest = align_images(matched_target, source_features[Features.IMAGE], max_features=1000, keep_percent=0.1)
+        #cv2.imshow('Hyfuck', target_features[Features.IMAGE])
+        #cv2.imshow('Hyeck', matched_target)
+        #cv2.imshow('Hyuck', aligned_target)
+        #cv2.imshow('Hyock', source_features[Features.IMAGE])
+        #cv2.waitKey(0)
+        full_correlation = cv2.matchTemplate(
+            source_features[Features.IMAGE],
+            target_features[Features.IMAGE],
+            matching_mode
+            )
+        scores.append(full_correlation[0][0])
 
+        source_keys, source_descriptors = source_features[Features.SIFT]
+        target_keys, target_descriptors = target_features[Features.SIFT]
+        good_matches = get_flann_matched_points(source_descriptors, target_descriptors)
+        points = flann_matches_to_points_list(good_matches, source_keys, target_keys)
+        target_points = 30
+        scores.append(min(len(points[0]) / target_points, 1))
+        # Shape matching
+        #print(cv2.matchShapes(source_features[Features.MASK], target_features[Features.MASK], cv2.CONTOURS_MATCH_I3, 0.0))
+        #scores.append(cv2.matchShapes(source_features[Features.MASK], target_features[Features.MASK], cv2.CONTOURS_MATCH_I3, 0.0))
 
 
         scores = np.array(scores)

@@ -3,7 +3,7 @@ import numpy as np
 from image_tools import resize
 
 def create_display_grid(im_arr, resize_all=None):
-	if len(im_arr) == 1:
+	if type(im_arr) == np.ndarray and im_arr.shape[1] > 1:
 		im_arr = [im_arr]
 	for im in im_arr[0]:
 		if type(im) == np.ndarray:

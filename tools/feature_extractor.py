@@ -6,6 +6,8 @@ from pathlib import Path
 import os
 from enum import Enum
 
+from tools.image_tools import get_sift_points
+
 def extract_hu_moments(mask):
     moments = cv2.moments(mask)
     hu_moments = cv2.HuMoments(moments)
@@ -117,12 +119,12 @@ def get_colour_matched(im):
 
     return match_histograms(clipped, clipped_ref)
 
-
 class Features(Enum):
     MASK = 0
     IMAGE = 1
     MASKED_IMAGE = 2
     COLOUR_MASKS = 4
+    SIFT = 5
 
 def get_features(im, requested_features = list(Features), target_size=400):
     if type(requested_features) == Features:
@@ -145,4 +147,6 @@ def get_features(im, requested_features = list(Features), target_size=400):
         if Features.COLOUR_MASKS in requested_features:
             colour_masks = extract_sand_grass_rock(im)
             features[Features.COLOUR_MASKS] = colour_masks
+        if Features.SIFT in requested_features:
+            features[Features.SIFT] = get_sift_points(features[Features.IMAGE])
     return features

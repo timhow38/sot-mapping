@@ -48,7 +48,7 @@ def test_one_against_all(name):
     cv2.imshow(f'Outcome', display)
 
 if __name__ == '__main__':
-    test_one_against_all('CrooksHollow')
+    #test_one_against_all('CrooksHollow')
     test_all_against_all()
     cv2.waitKey(0)
     cv2.destroyAllWindows()
