@@ -10,15 +10,17 @@ if __name__ == '__main__':
 
 	path = Path(os.path.dirname(os.path.abspath(__file__)))
 	map_path = path / '..' / 'testing-and-validation' / 'named-treasure-maps'
-	map_image_paths = map_path.glob('**/*.jpg')
+	map_image_paths = map_path.glob('**/*.*p*g*')
 
 	x_ims = []
 	for path in map_image_paths:
 		x_ims.append(LabelledImage(str(path)))
 
 	preds = [model.predict(im.im) for im in x_ims]
+	preds = [pred.split('-')[-1].split('.')[0] for pred in preds]
 	true = [im.name for im in x_ims]
-	cm = confusion_matrix(true, preds)
+	true = [name.split('_')[0] for name in true]
+ne 	cm = confusion_matrix(true, preds)
 	disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 	disp.plot()
 	plt.show()
