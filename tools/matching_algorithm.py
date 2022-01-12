@@ -19,15 +19,16 @@ def match_image(im, cache = None, weights = None):
     source_features = get_features(im)
     final_scores = {}
 
-    for path in image_paths:
-        name = str(path).split('-')[-1]
-        if cache is not None and name in cache:
-            target_features = cache[name]
-        else:
+    if cache is None:
+        cache = {}
+        for path in image_paths:
+            name = str(path).split('-')[-1]
             target = cv2.imread(str(path))
             target_features = get_features(target)
             if cache is not None:
                 cache[name] = target_features
+
+    for name, target_features in cache.items():
         scores = []
 
         # Hu moments MSE
