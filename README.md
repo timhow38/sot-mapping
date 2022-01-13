@@ -7,7 +7,7 @@
 **Brief:** Using a variety of methods to analyse a screen grab of an in game island map to determine which island the map refers to and to then send this data along with meta data concerning the island properties.
 
 **Analysis Methods Used: **
-A brief description of the types of methods used
+Identifies and isolates relevant features, creates binary masks and SIFT matching points, and creates a weighted match score against a cache of reference images
 
 
 # Application Installation
@@ -20,14 +20,14 @@ Clone the project
   git clone https://github.com/timhow38/sot-mapping
 ```
 
-Open the project dir using "VSCode Community"
+Set up a venv in the same directory
 
 ```powershell
   # Install Python >= 3.9
   py -m venv ./../sot-mapping
 ```
 
-Setup Virtual Environment
+Activate the new virtual environment
 
 ```powershell
   # Powershell: 
@@ -39,7 +39,7 @@ Setup Virtual Environment
   Scripts/activate.bat
 ```
 
-Install Dependencies. - **Only needed on first setup**
+Install Dependencies
 
 ```powershell
   # Install dependencies for a closed env 
@@ -47,9 +47,9 @@ Install Dependencies. - **Only needed on first setup**
 ```
 
 
-## Local Testing - Test / Generate
-While Environment active type the following:
+## Run the program
+With your environment active:
 
 ```py
-  py tools/test_masking.py
+  py tools/screen_thieves.py
 ```
