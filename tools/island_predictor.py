@@ -31,6 +31,8 @@ class IslandPredictor:
 		self.match_image = match_image
 		self.cache = {}
 		self.ref_ims = None
+		self.ready = False
+		self.caching = False
 
 	def get_reference_ims(self):
 		path = Path(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +46,7 @@ class IslandPredictor:
 
 	def precache_features(self):
 		print(f'Precaching model features...')
+		self.caching = True
 		if self.ref_ims is None:
 			print(f'Loading reference images...')
 			self.get_reference_ims()
@@ -51,9 +54,19 @@ class IslandPredictor:
 		for image in self.ref_ims:
 			image.set_features()
 			self.cache[image.file_name] = image.features
+		self.ready = True
+		self.caching = False
 		print(f'Precaching complete')
 
 	def predict(self, im, full_predictions=False):
+		if not self.ready:
+			print('Not yet ready to predict!')
+			if not self.caching:
+				print('You have not called IslandPredictor.precache_features(), doing so now')
+				self.precache_features()
+			else:
+				print('Wait for feature precaching to complete')
+			return
 		predictions = self.match_image(im, self.cache)
 		predictions = sorted(predictions.items(), key=lambda x: x[1][0])
 		if full_predictions:

@@ -77,8 +77,6 @@ def match_image(im, cache = None, weights = None):
             matching_mode
             )
         scores.append(mask_correlation[0][0])
-
-        print(mask_correlation)
         #matched_target = match_histograms(target_features[Features.IMAGE], source_features[Features.IMAGE])
         #aligned_target, *rest = align_images(matched_target, source_features[Features.IMAGE], max_features=1000, keep_percent=0.1)
         #cv2.imshow('Hyfuck', target_features[Features.IMAGE])

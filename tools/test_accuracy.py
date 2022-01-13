@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import os
 
+from feature_extractor import get_features
+import cv2
+
 if __name__ == '__main__':
 	model = IslandPredictor()
 	model.precache_features()
@@ -21,7 +24,7 @@ if __name__ == '__main__':
 	true = [im.name for im in x_ims]
 	true = [name.split('_')[0] for name in true]
 	for y_pred, y_true in zip(preds, true):
-		print(f'{y_pred} -> {y_true}')
+		print(f'{y_pred} -> {y_true} {y_pred == y_true}')
 	cm = confusion_matrix(true, preds)
 	disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 	disp.plot()

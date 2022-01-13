@@ -38,7 +38,7 @@ def extract_colour_histogram(im):
 # screens like that anyway?
 def crop_to_aspect(im, target_ratio=1):
     im_ratio = im.shape[1] / im.shape[0]
-    if im_ratio == target_ratio:
+    if im_ratio <= target_ratio:
         return im
     relative_ratio = im_ratio / target_ratio
     offset_x = int((im.shape[1] - (im.shape[1] / relative_ratio)) / 2)
