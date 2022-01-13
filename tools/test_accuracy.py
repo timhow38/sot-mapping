@@ -20,6 +20,8 @@ if __name__ == '__main__':
 	preds = [pred.split('-')[-1].split('.')[0] for pred in preds]
 	true = [im.name for im in x_ims]
 	true = [name.split('_')[0] for name in true]
+	for y_pred, y_true in zip(preds, true):
+		print(f'{y_pred} -> {y_true}')
 	cm = confusion_matrix(true, preds)
 	disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 	disp.plot()
