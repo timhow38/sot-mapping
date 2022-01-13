@@ -29,16 +29,10 @@ def parse_key(key):
         return key.value
     return key
 
-def quit():
-    print('cya')
-    return False
-
 def on_press(key): 
     current.add(key)
     if all(k in current for k in capture_chord):
         threading.Thread(target=on_activate, args=(model,)).start()
-    if all([k in current for k in quit_chord]): 
-        return False
 
 def on_release(key):
     if key in current:
@@ -48,7 +42,6 @@ if __name__ == '__main__':
     current = set()
     model = IslandPredictor()
     capture_chord = set([keyboard.Key.space, keyboard.KeyCode(char='q')])
-    quit_chord = set([keyboard.Key.shift, keyboard.KeyCode(char='a')])
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         model.precache_features()
         listener.join()
